@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1490878502 source:f:\nexusgame\nexusgame\main.cpp
+	"pchNexusGame.h"
+	"app.h"
+
+1490881400 source:f:\nexusgame\nexusgame\game.cpp
+	"pchNexusGame.h"
+	"game.h"
+	"fpscontroller.h"
+	"menuscreen.h"
+	"gamescreen.h"
+
+1490806876 f:\nexusgame\nexusgame\pchnexusgame.h
+	<iostream>
+	<graphics.h>
+	"windef.h"
+	<stdio.h>
+	<math.h>
+	<windows.h>
+
+1490879876 f:\nexusgame\nexusgame\game.h
+	"def.h"
+
+1490879749 f:\nexusgame\nexusgame\def.h
+
+1490859349 source:f:\nexusgame\nexusgame\app.cpp
+	"pchNexusGame.h"
+	"app.h"
+	"game.h"
+
+1490185896 f:\nexusgame\nexusgame\app.h
+	"def.h"
+
+1490859266 source:f:\nexusgame\nexusgame\fpscontroller.cpp
+	"pchNexusGame.h"
+	"fpscontroller.h"
+
+1490858715 f:\nexusgame\nexusgame\fpscontroller.h
+
+1490880484 source:f:\nexusgame\nexusgame\screenbase.cpp
+	"pchNexusGame.h"
+	"screenbase.h"
+
+1490880472 f:\nexusgame\nexusgame\screenbase.h
+
+1490870906 f:\nexusgame\nexusgame\menuscreen.h
+	"screenbase.h"
+
+1490881722 source:f:\nexusgame\nexusgame\menuscreen.cpp
+	"pchNexusGame.h"
+	"menuscreen.h"
+	"game.h"
+	"def.h"
+
+1490880247 f:\nexusgame\nexusgame\gamescreen.h
+	"screenbase.h"
+
+1490881391 source:f:\nexusgame\nexusgame\gamescreen.cpp
+	"pchNexusGame.h"
+	"gamescreen.h"
+	"def.h"
+

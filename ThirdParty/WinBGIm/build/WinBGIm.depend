@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\dibutil.cxx
+	<windows.h>
+	<assert.h>
+	"dibapi.h"
+	"dibutil.h"
+	<stdio.h>
+
+1485238208 f:\nexusgame\thirdparty\winbgim\src\dibapi.h
+
+1485238208 f:\nexusgame\thirdparty\winbgim\src\dibutil.h
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\drawing.cxx
+	<windows.h>
+	<windowsx.h>
+	<math.h>
+	<ocidl.h>
+	<olectl.h>
+	<string.h>
+	"winbgim.h"
+	"winbgitypes.h"
+	"dibapi.h"
+	<iostream>
+
+1485238208 f:\nexusgame\thirdparty\winbgim\src\winbgim.h
+	<windows.h>
+	<limits.h>
+	<sstream>
+
+1485238208 f:\nexusgame\thirdparty\winbgim\src\winbgitypes.h
+	<windows.h>
+	<tchar.h>
+	<queue>
+	<string>
+	"winbgim.h"
+	<vector>
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\file.cxx
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<io.h>
+	<direct.h>
+	<stdlib.h>
+	"dibutil.h"
+	"dibapi.h"
+	"winbgitypes.h"
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\misc.cxx
+	<windows.h>
+	<windowsx.h>
+	"winbgim.h"
+	"winbgitypes.h"
+	<iostream>
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\mouse.cxx
+	<windows.h>
+	<windowsx.h>
+	"winbgim.h"
+	"winbgitypes.h"
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\palette.cxx
+	<windows.h>
+	<windowsx.h>
+	"winbgim.h"
+	"winbgitypes.h"
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\text.cxx
+	<windows.h>
+	<windowsx.h>
+	<iostream>
+	<sstream>
+	<string>
+	"winbgim.h"
+	"winbgitypes.h"
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\winbgi.cxx
+	<windows.h>
+	<windowsx.h>
+	<stdio.h>
+	<iostream>
+	<vector>
+	"winbgim.h"
+	"winbgitypes.h"
+
+1485238208 source:f:\nexusgame\thirdparty\winbgim\src\winthread.cxx
+	<windows.h>
+	<windowsx.h>
+	"winbgim.h"
+	"winbgitypes.h"
+	<vector>
+	<queue>
+	<iostream>
+	<iostream>
+
