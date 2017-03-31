@@ -8,16 +8,16 @@ CGame * CGame::s_pGame = NULL;
 
 CGame::CGame()
 {
-    m_timeTotalElapsed = 0.0;
-    m_pMenuScreen = new CMenuScreen();
-    m_pGameScreen = new CGameScreen();
-    m_pRefActiveScreen = NULL;
+	m_timeTotalElapsed = 0.0;
+	m_pMenuScreen = new CMenuScreen();
+	m_pGameScreen = new CGameScreen();
+	m_pRefActiveScreen = NULL;
 }
 
 CGame::~CGame()
 {
-    delete m_pMenuScreen;
-    delete m_pGameScreen;
+	delete m_pMenuScreen;
+	delete m_pGameScreen;
 }
 
 bool CGame::Start()
@@ -41,49 +41,49 @@ void CGame::Stop()
 
 CGame & CGame::Get()
 {
-    return *s_pGame;
+	return *s_pGame;
 }
 
 bool CGame::Run()
 {
-    while(!kbhit())
-    {
-        double timeElapsed = m_pFPSController->Update();
-        this->Update(timeElapsed);
-    }
+	while(!kbhit())
+	{
+		double timeElapsed = m_pFPSController->Update();
+		this->Update(timeElapsed);
+	}
 	return true;
 }
 
 void CGame::SetActiveScreen(ESCREEN_TYPE type)
 {
-    if(type == SCREEN_NONE)
-        return;
+	if(type == SCREEN_NONE)
+		return;
 
-    if(m_pRefActiveScreen)
-        m_pRefActiveScreen->DeActivate();
+	if(m_pRefActiveScreen)
+		m_pRefActiveScreen->DeActivate();
 
-    if(type == SCREEN_GAME)
-    {
-        m_pRefActiveScreen = m_pGameScreen;
-    }
-    else if(type == SCREEN_MENU)
-    {
-        m_pRefActiveScreen = m_pMenuScreen;
-    }
-    else
-    {
-        m_pRefActiveScreen = NULL;
-    }
+	if(type == SCREEN_GAME)
+	{
+		m_pRefActiveScreen = m_pGameScreen;
+	}
+	else if(type == SCREEN_MENU)
+	{
+		m_pRefActiveScreen = m_pMenuScreen;
+	}
+	else
+	{
+		m_pRefActiveScreen = NULL;
+	}
 
-    if(m_pRefActiveScreen)
-        m_pRefActiveScreen->Activate();
+	if(m_pRefActiveScreen)
+		m_pRefActiveScreen->Activate();
 }
 
 bool CGame::InitPrivate()
 {
-    cout << "Starting Game" << endl;
-    m_pFPSController = new CFPSController(100);
-    SetActiveScreen(SCREEN_MENU);
+	cout << "Starting Game" << endl;
+	m_pFPSController = new CFPSController(100);
+	SetActiveScreen(SCREEN_MENU);
 	return true;
 }
 

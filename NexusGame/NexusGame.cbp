@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="app.cpp" />
 		<Unit filename="app.h" />
+		<Unit filename="breakablebrick.cpp" />
+		<Unit filename="breakablebrick.h" />
 		<Unit filename="brickbase.cpp" />
 		<Unit filename="brickbase.h" />
 		<Unit filename="def.h" />
@@ -57,6 +59,8 @@
 		<Unit filename="pchNexusGame.h" />
 		<Unit filename="screenbase.cpp" />
 		<Unit filename="screenbase.h" />
+		<Unit filename="unbreakablebrick.cpp" />
+		<Unit filename="unbreakablebrick.h" />
 		<Unit filename="wall.cpp" />
 		<Unit filename="wall.h" />
 		<Extensions>

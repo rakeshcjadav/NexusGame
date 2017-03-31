@@ -14,7 +14,7 @@ void CApp::Run()
 
 CApp::CApp()
 {
-    initwindow(1280, 720);
+    initwindow(1280, 720, "Bull's EYE", 50, 50, false, false);
 }
 
 CApp::~CApp()

@@ -20,8 +20,8 @@ bool CGameScreen::Activate()
 
 bool CGameScreen::DeActivate()
 {
-    delete m_pCurrentLevel;
-    return CGameScreen::DeActivate();
+	delete m_pCurrentLevel;
+	return CScreenBase::DeActivate();
 }
 
 void CGameScreen::Update(double timeElapsed)
