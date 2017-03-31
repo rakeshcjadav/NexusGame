@@ -6,12 +6,10 @@
 class CMenuScreen : public CScreenBase
 {
 public:
-                    CMenuScreen();
-                    ~CMenuScreen();
+					CMenuScreen();
+	virtual			~CMenuScreen();
 
-    virtual bool    Activate();
-    virtual bool    DeActivate();
-    virtual void    Update(double timeElapsed);
+	virtual void	Update(double timeElapsed);
 };
 
 #endif // !MENUSCREEN_H

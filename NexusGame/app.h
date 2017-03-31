@@ -6,10 +6,10 @@
 class CApp
 {
 public:
-            CApp();
-            ~CApp();
+			CApp();
+			~CApp();
 
-    void    Run();
+	void	Run();
 };
 
 #endif // !GAME_H

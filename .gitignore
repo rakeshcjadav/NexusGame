@@ -1,1 +1,2 @@
-/NexusGame/*
+/NexusGame/bin/Debug/*.exe
+/NexusGame/obj/Debug/*.o

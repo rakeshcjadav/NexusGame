@@ -4,13 +4,13 @@
 class CFPSController
 {
 public:
-            CFPSController(int nDesiredFPS);
-            ~CFPSController();
+				CFPSController(int nDesiredFPS);
+				~CFPSController();
 
-    double  Update();
+	double		Update();
 
 private:
-    int     m_nDesiredFPS;
+	int			m_nDesiredFPS;
 };
 
 #endif // !FPSCONTROLLER_H

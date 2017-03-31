@@ -34,19 +34,31 @@
 		</Compiler>
 		<Unit filename="app.cpp" />
 		<Unit filename="app.h" />
+		<Unit filename="brickbase.cpp" />
+		<Unit filename="brickbase.h" />
 		<Unit filename="def.h" />
 		<Unit filename="fpscontroller.cpp" />
 		<Unit filename="fpscontroller.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
+		<Unit filename="gameobject.cpp" />
+		<Unit filename="gameobject.h" />
 		<Unit filename="gamescreen.cpp" />
 		<Unit filename="gamescreen.h" />
+		<Unit filename="levelbase.cpp" />
+		<Unit filename="levelbase.h" />
+		<Unit filename="levelone.cpp" />
+		<Unit filename="levelone.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menuscreen.cpp" />
 		<Unit filename="menuscreen.h" />
+		<Unit filename="nexus.cpp" />
+		<Unit filename="nexus.h" />
 		<Unit filename="pchNexusGame.h" />
 		<Unit filename="screenbase.cpp" />
 		<Unit filename="screenbase.h" />
+		<Unit filename="wall.cpp" />
+		<Unit filename="wall.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

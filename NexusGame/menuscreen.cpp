@@ -14,19 +14,6 @@ CMenuScreen::~CMenuScreen()
 
 }
 
-bool CMenuScreen::Activate()
-{
-    m_bActive = true;
-    m_timeTotalElapsed = 0.0;
-    return true;
-}
-
-bool CMenuScreen::DeActivate()
-{
-    m_bActive = false;
-    return false;
-}
-
 void CMenuScreen::Update(double timeElapsed)
 {
     if(!IsActive())

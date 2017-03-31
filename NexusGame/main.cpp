@@ -1,12 +1,12 @@
 #include "pchNexusGame.h"
 #include "app.h"
 
-
 int main()
 {
-    CApp * pApp = new CApp();
-    pApp->Run();
-    return 0;
+	CApp * pApp = new CApp();
+	pApp->Run();
+	delete pApp;
+	return 0;
 }
 
 /*

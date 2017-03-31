@@ -11,6 +11,7 @@ CGame::CGame()
     m_timeTotalElapsed = 0.0;
     m_pMenuScreen = new CMenuScreen();
     m_pGameScreen = new CGameScreen();
+    m_pRefActiveScreen = NULL;
 }
 
 CGame::~CGame()
@@ -24,9 +25,9 @@ bool CGame::Start()
 	if (s_pGame == NULL)
 	{
 		s_pGame = new CGame();
-		if (s_pGame->InitPrivate() == FALSE)
+		if (s_pGame->InitPrivate() == false)
 		{
-			return FALSE;
+			return false;
 		}
 	}
 	return true;
@@ -60,6 +61,7 @@ void CGame::SetActiveScreen(ESCREEN_TYPE type)
 
     if(m_pRefActiveScreen)
         m_pRefActiveScreen->DeActivate();
+
     if(type == SCREEN_GAME)
     {
         m_pRefActiveScreen = m_pGameScreen;
@@ -68,13 +70,19 @@ void CGame::SetActiveScreen(ESCREEN_TYPE type)
     {
         m_pRefActiveScreen = m_pMenuScreen;
     }
-    m_pRefActiveScreen->Activate();
+    else
+    {
+        m_pRefActiveScreen = NULL;
+    }
+
+    if(m_pRefActiveScreen)
+        m_pRefActiveScreen->Activate();
 }
 
 bool CGame::InitPrivate()
 {
     cout << "Starting Game" << endl;
-    m_pFPSController = new CFPSController(60);
+    m_pFPSController = new CFPSController(100);
     SetActiveScreen(SCREEN_MENU);
 	return true;
 }
@@ -83,15 +91,14 @@ bool CGame::Update(double timeElapsed)
 {
     m_timeTotalElapsed += timeElapsed;
 
-    static bool bPage = false;
-    setactivepage((bPage == false) ? 0 : 1);
-    setvisualpage((bPage == true) ? 0 : 1);
+    static int nPage = 0;
+    setactivepage(nPage);
+    setvisualpage(1-nPage);
 
     cleardevice();
 
     m_pRefActiveScreen->Update(timeElapsed);
 
-    setvisualpage((bPage == true) ? 0 : 1);
-    bPage = !bPage;
+    nPage = 1 - nPage;
     return true;
 }

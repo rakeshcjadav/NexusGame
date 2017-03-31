@@ -4,17 +4,17 @@
 class CScreenBase
 {
 public:
-                    CScreenBase();
-                    ~CScreenBase();
+					CScreenBase();
+	virtual			~CScreenBase();
 
-    virtual bool    Activate() = 0;
-    virtual bool    DeActivate() = 0;
-    virtual void    Update(double timeElapsed) = 0;
-    bool            IsActive() const;
+	virtual bool	Activate();
+	virtual bool	DeActivate();
+	virtual void	Update(double timeElapsed) = 0;
+	bool			IsActive() const;
 
 protected:
-    bool            m_bActive;
-    double          m_timeTotalElapsed;
+	bool			m_bActive;
+	double			m_timeTotalElapsed;
 };
 
 #endif // !SCREENBASE_H

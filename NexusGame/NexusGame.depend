@@ -1,24 +1,25 @@
 # depslib dependency file v1.0
-1490878502 source:f:\nexusgame\nexusgame\main.cpp
+1490945778 source:f:\nexusgame\nexusgame\main.cpp
 	"pchNexusGame.h"
 	"app.h"
 
-1490881400 source:f:\nexusgame\nexusgame\game.cpp
+1490948884 source:f:\nexusgame\nexusgame\game.cpp
 	"pchNexusGame.h"
 	"game.h"
 	"fpscontroller.h"
 	"menuscreen.h"
 	"gamescreen.h"
 
-1490806876 f:\nexusgame\nexusgame\pchnexusgame.h
+1490941211 f:\nexusgame\nexusgame\pchnexusgame.h
 	<iostream>
 	<graphics.h>
 	"windef.h"
 	<stdio.h>
 	<math.h>
 	<windows.h>
+	"def.h"
 
-1490879876 f:\nexusgame\nexusgame\game.h
+1490945492 f:\nexusgame\nexusgame\game.h
 	"def.h"
 
 1490879749 f:\nexusgame\nexusgame\def.h
@@ -28,35 +29,95 @@
 	"app.h"
 	"game.h"
 
-1490185896 f:\nexusgame\nexusgame\app.h
+1490945401 f:\nexusgame\nexusgame\app.h
 	"def.h"
 
 1490859266 source:f:\nexusgame\nexusgame\fpscontroller.cpp
 	"pchNexusGame.h"
 	"fpscontroller.h"
 
-1490858715 f:\nexusgame\nexusgame\fpscontroller.h
+1490945436 f:\nexusgame\nexusgame\fpscontroller.h
 
-1490880484 source:f:\nexusgame\nexusgame\screenbase.cpp
+1490893876 source:f:\nexusgame\nexusgame\screenbase.cpp
 	"pchNexusGame.h"
 	"screenbase.h"
 
-1490880472 f:\nexusgame\nexusgame\screenbase.h
+1490945708 f:\nexusgame\nexusgame\screenbase.h
 
-1490870906 f:\nexusgame\nexusgame\menuscreen.h
+1490945642 f:\nexusgame\nexusgame\menuscreen.h
 	"screenbase.h"
 
-1490881722 source:f:\nexusgame\nexusgame\menuscreen.cpp
+1490893910 source:f:\nexusgame\nexusgame\menuscreen.cpp
 	"pchNexusGame.h"
 	"menuscreen.h"
 	"game.h"
 	"def.h"
 
-1490880247 f:\nexusgame\nexusgame\gamescreen.h
+1490945583 f:\nexusgame\nexusgame\gamescreen.h
 	"screenbase.h"
 
-1490881391 source:f:\nexusgame\nexusgame\gamescreen.cpp
+1490945866 source:f:\nexusgame\nexusgame\gamescreen.cpp
 	"pchNexusGame.h"
 	"gamescreen.h"
-	"def.h"
+	"levelone.h"
+
+1490946886 source:f:\nexusgame\nexusgame\levelbase.cpp
+	"pchNexusGame.h"
+	"levelbase.h"
+	"nexus.h"
+
+1490945385 f:\nexusgame\nexusgame\levelbase.h
+	"gameobject.h"
+
+1490946294 f:\nexusgame\nexusgame\gameobject.h
+
+1490942618 source:f:\nexusgame\nexusgame\gameobject.cpp
+	"pchNexusGame.h"
+	"gameobject.h"
+
+1490946927 source:f:\nexusgame\nexusgame\nexus.cpp
+	"pchNexusGame.h"
+	"nexus.h"
+
+1490946910 f:\nexusgame\nexusgame\nexus.h
+	"gameobject.h"
+
+1490976911 source:f:\nexusgame\nexusgame\levelone.cpp
+	"pchNexusGame.h"
+	"levelone.h"
+	"wall.h"
+	"nexus.h"
+
+1490947132 f:\nexusgame\nexusgame\levelone.h
+	"levelbase.h"
+
+1490975615 f:\nexusgame\nexusgame\wall.h
+	"gameobject.h"
+
+1490976893 source:f:\nexusgame\nexusgame\wall.cpp
+	"pchNexusGame.h"
+	"wall.h"
+	"breakablebrick.h"
+	"unbreakablebrick.h"
+
+1490976078 source:f:\nexusgame\nexusgame\brickbase.cpp
+	"pchNexusGame.h"
+	"brickbase.h"
+
+1490948642 f:\nexusgame\nexusgame\brickbase.h
+	"gameobject.h"
+
+1490976102 source:f:\nexusgame\nexusgame\breakablebrick.cpp
+	"pchNexusGame.h"
+	"breakablebrick.h"
+
+1490975838 f:\nexusgame\nexusgame\breakablebrick.h
+	"brickbase.h"
+
+1490976097 source:f:\nexusgame\nexusgame\unbreakablebrick.cpp
+	"pchNexusGame.h"
+	"unbreakablebrick.h"
+
+1490975867 f:\nexusgame\nexusgame\unbreakablebrick.h
+	"brickbase.h"
 

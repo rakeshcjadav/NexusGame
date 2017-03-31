@@ -8,6 +8,8 @@
 #include<math.h>
 #include<windows.h>
 
+#include "def.h"
+
 using namespace std;
 
 #endif // PCHNEXUSGAME_H_INCLUDED
