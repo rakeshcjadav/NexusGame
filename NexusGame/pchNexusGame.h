@@ -9,6 +9,7 @@
 #include<windows.h>
 
 #include "def.h"
+#include "localplayer.h"
 
 using namespace std;
 

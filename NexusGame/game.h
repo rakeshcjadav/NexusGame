@@ -14,9 +14,11 @@ public:
 	static void			Stop();
 	static CGame &		Get();
 
-
 	bool				Run();
 	void				SetActiveScreen(ESCREEN_TYPE type);
+
+	void 				OnLeftMouseDown(int x, int y);
+	void 				OnRightMouseDown(int x, int y);
 
 private:
 						CGame();

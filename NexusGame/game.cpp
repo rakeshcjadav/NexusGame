@@ -6,6 +6,16 @@
 
 CGame * CGame::s_pGame = NULL;
 
+void LeftMouseDownListener(int x, int y)
+{
+	CGame::Get().OnLeftMouseDown(x, y);
+}
+
+void RightMouseDownListener(int x, int y)
+{
+	CGame::Get().OnRightMouseDown(x, y);
+}
+
 CGame::CGame()
 {
 	m_timeTotalElapsed = 0.0;
@@ -84,21 +94,35 @@ bool CGame::InitPrivate()
 	cout << "Starting Game" << endl;
 	m_pFPSController = new CFPSController(100);
 	SetActiveScreen(SCREEN_MENU);
+
+	registermousehandler(WM_LBUTTONDOWN, LeftMouseDownListener);
+	registermousehandler(WM_RBUTTONDOWN, RightMouseDownListener);
 	return true;
 }
 
 bool CGame::Update(double timeElapsed)
 {
-    m_timeTotalElapsed += timeElapsed;
+	m_timeTotalElapsed += timeElapsed;
 
-    static int nPage = 0;
-    setactivepage(nPage);
-    setvisualpage(1-nPage);
+	static int nPage = 0;
+	setactivepage(nPage);
+	setvisualpage(1-nPage);
 
-    cleardevice();
+	cleardevice();
 
-    m_pRefActiveScreen->Update(timeElapsed);
+	m_pRefActiveScreen->Update(timeElapsed);
 
-    nPage = 1 - nPage;
-    return true;
+	nPage = 1 - nPage;
+	return true;
+}
+
+void CGame::OnLeftMouseDown(int x, int y)
+{
+	cout << "Left x : " << x  << " " << "y : " << y << endl;
+}
+
+void CGame::OnRightMouseDown(int x, int y)
+{
+	cout << "Right x : " << x  << " " << "y : " << y << endl;
+	//Jay swaminarayan : CMouse class to as listener to all mouse events and forward them to game.
 }
