@@ -49,8 +49,12 @@
 		<Unit filename="gamescreen.h" />
 		<Unit filename="levelbase.cpp" />
 		<Unit filename="levelbase.h" />
+		<Unit filename="levelfour.cpp" />
+		<Unit filename="levelfour.h" />
 		<Unit filename="levelone.cpp" />
 		<Unit filename="levelone.h" />
+		<Unit filename="levelthree.cpp" />
+		<Unit filename="levelthree.h" />
 		<Unit filename="leveltwo.cpp" />
 		<Unit filename="leveltwo.h" />
 		<Unit filename="localplayer.cpp" />
