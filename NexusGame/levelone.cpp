@@ -7,9 +7,8 @@
 CLevelOne::CLevelOne()
 {
 	m_pWall = new CWall(m_iPosX, m_iPosY, 60, 40, 100, 4);
-	//m_pWallTwo = new CWall(m_iPosX, m_iPosY, 60, 120, 6);
 
-	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.9, 10);
+	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.8, 10);
 }
 
 CLevelOne::~CLevelOne()
@@ -21,7 +20,6 @@ void CLevelOne::Update(double timeElapsed)
 {
 	CLevelBase::Update(timeElapsed);
 
-	//m_pWallTwo->Update(timeElapsed);
 	m_pWall->Update(timeElapsed);
 
 	m_pNexus->Update(timeElapsed);
@@ -49,13 +47,6 @@ bool CLevelOne::OnLeftMouseDown(int x, int y)
 
 bool CLevelOne::OnRightMouseDown(int x, int y)
 {
-	int distance = sqrt((m_iPosX - x)*(m_iPosX - x) + (m_iPosY - y)*(m_iPosY - y));
-	if(distance < m_iRadius)
-	{
-		CLocalPlayer::Get().Spawn(x, y, 10);
-		return true;
-	}
-
 	return false;
 }
 

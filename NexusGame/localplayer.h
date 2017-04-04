@@ -10,7 +10,7 @@ class CLocalPlayer : public CGameObject
 {
 public:
 
-	static bool				Create(int iMovementSpeed);
+	static bool				Create(int iMovementSpeed, int iRotationSpeed);
 	static void 			Destroy();
 	static CLocalPlayer &	Get();
 
@@ -22,8 +22,10 @@ public:
 	void					Spawn(int xPos, int yPos, int iRadius);
 	void					ShootAt(int xTarget, int yTarget);
 
+	void 					SetRotationSpeed(int iRotationSpeed);
+
 private:
-							CLocalPlayer(int iMovementSpeed);
+							CLocalPlayer(int iMovementSpeed, int iRotationSpeed);
 	virtual					~CLocalPlayer();
 
 private:
@@ -39,6 +41,9 @@ private:
 	double					m_yShootDir;
 	int						m_iStartPosX;
 	int 					m_iStartPosY;
+	int 					m_iRotationSpeed;
+	bool					m_bRotate;
+	double 					m_timeRotationTravel;
 };
 
 #endif // !LOCALPLAYER_H

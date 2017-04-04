@@ -1,30 +1,33 @@
 #include "pchNexusGame.h"
-#include "leveltwo.h"
+#include "levelthree.h"
 #include "wall.h"
 #include "nexus.h"
 #include "game.h"
 
-CLevelTwo::CLevelTwo()
+CLevelThree::CLevelThree()
 {
-	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 60, 100, 4);
-	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 100, 4);
-	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, 100, 4);
+	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 60, 100, 2);
+	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 120, 8);
+	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, 130, 4);
+	m_pWallFour = new CWall(m_iPosX, m_iPosY, 200, 180, 125, 12);
 
-	CLocalPlayer::Get().SetRotationSpeed(0);
+	CLocalPlayer::Get().SetRotationSpeed(80);
 	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.8, 10);
 }
 
-CLevelTwo::~CLevelTwo()
+CLevelThree::~CLevelThree()
 {
 	delete m_pWallOne;
 	delete m_pWallTwo;
 	delete m_pWallThree;
+	delete m_pWallFour;
 }
 
-void CLevelTwo::Update(double timeElapsed)
+void CLevelThree::Update(double timeElapsed)
 {
 	CLevelBase::Update(timeElapsed);
 
+	m_pWallFour->Update(timeElapsed);
 	m_pWallThree->Update(timeElapsed);
 	m_pWallTwo->Update(timeElapsed);
 	m_pWallOne->Update(timeElapsed);
@@ -41,7 +44,7 @@ void CLevelTwo::Update(double timeElapsed)
 	*/
 }
 
-bool CLevelTwo::OnLeftMouseDown(int x, int y)
+bool CLevelThree::OnLeftMouseDown(int x, int y)
 {
 	int distance = sqrt((m_iPosX - x)*(m_iPosX - x) + (m_iPosY - y)*(m_iPosY - y));
 	if(distance < m_iRadius)
@@ -52,15 +55,34 @@ bool CLevelTwo::OnLeftMouseDown(int x, int y)
 	return false;
 }
 
-bool CLevelTwo::OnRightMouseDown(int x, int y)
+bool CLevelThree::OnRightMouseDown(int x, int y)
 {
+	double distance = sqrt((m_iPosX - x)*(m_iPosX - x) + (m_iPosY - y)*(m_iPosY - y));
+	if(distance < m_iRadius)
+	{
+		double xDir = (x - m_iPosX) / distance;
+		double yDir = (y - m_iPosY) / distance;
+
+		x = xDir * m_iRadius * 0.80;
+		y = yDir * m_iRadius * 0.80;
+
+		CLocalPlayer::Get().Spawn(m_iPosX + x, m_iPosY + y, 10);
+		return true;
+	}
+
 	return false;
 }
 
-bool CLevelTwo::IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer)
+bool CLevelThree::IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer)
 {
 	if(CGameObject::IsCollidingObj(localplayer) == false)
 		return false;
+
+	if(m_pWallFour->IsColliding(localplayer, bRespawnPlayer) == false)
+		return false;
+
+	if(bRespawnPlayer == true)
+		return true;
 
 	if(m_pWallThree->IsColliding(localplayer, bRespawnPlayer) == false)
 		return false;

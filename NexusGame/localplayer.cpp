@@ -5,11 +5,11 @@
 
 CLocalPlayer * CLocalPlayer::s_pLocalPlayer = NULL;
 
-bool CLocalPlayer::Create(int iMovementSpeed)
+bool CLocalPlayer::Create(int iMovementSpeed, int iRotationSpeed)
 {
 	if(!s_pLocalPlayer)
 	{
-		s_pLocalPlayer = new CLocalPlayer(iMovementSpeed);
+		s_pLocalPlayer = new CLocalPlayer(iMovementSpeed, iRotationSpeed);
 	}
 	return !!s_pLocalPlayer;
 }
@@ -24,15 +24,18 @@ CLocalPlayer & CLocalPlayer::Get()
 	return *s_pLocalPlayer;
 }
 
-CLocalPlayer::CLocalPlayer(int iMovementSpeed)
+CLocalPlayer::CLocalPlayer(int iMovementSpeed, int iRotationSpeed)
 {
 	m_iMovementSpeed = iMovementSpeed;
+	m_iRotationSpeed = iRotationSpeed;
 	m_bMoving = false;
+	m_bRotate = iRotationSpeed > 0 ? true : false;
 	m_iTargetX = 0;
 	m_iTargetY = 0;
 	m_timeTravel = 0.0;
 	m_xShootDir = 1.0;
 	m_yShootDir = 1.0;
+	m_timeRotationTravel = 0.0;
 	m_pRefCurrentLevel = NULL;
 }
 
@@ -50,7 +53,28 @@ void CLocalPlayer::Update(double timeElapsed)
 
 	m_iPosX = m_iStartPosX;
 	m_iPosY = m_iStartPosY;
-	if(m_bMoving)
+	if(m_bRotate)
+	{
+		m_timeRotationTravel += timeElapsed;
+
+		double degree = m_iRotationSpeed * m_timeRotationTravel;
+		double radian = degree * PI/180.0;
+		double cosangle = cos(radian);
+		double sinangle = sin(radian);
+
+		m_iPosX -= getmaxx()/2;
+		m_iPosY -= getmaxy()/2;
+
+		float x = m_iPosX * cosangle - m_iPosY * sinangle;
+		float y = m_iPosX * sinangle + m_iPosY * cosangle;
+
+		x += getmaxx()/2;
+		y += getmaxy()/2;
+
+		m_iPosX = x;
+		m_iPosY = y;
+	}
+	else if(m_bMoving)
 	{
 		m_timeTravel += timeElapsed;
 
@@ -76,6 +100,7 @@ void CLocalPlayer::Spawn(int xPos, int yPos, int iRadius)
 	m_iRadius = iRadius;
 	m_bMoving = false;
 	m_timeTravel = 0.0;
+	m_bRotate = m_iRotationSpeed > 0 ? true : false;
 }
 
 void CLocalPlayer::ShootAt(int xTarget, int yTarget)
@@ -86,12 +111,20 @@ void CLocalPlayer::ShootAt(int xTarget, int yTarget)
 	m_iTargetX = xTarget;
 	m_iTargetY = yTarget;
 
+	if(m_bRotate)
+	{
+		m_iStartPosX = m_iPosX;
+		m_iStartPosY = m_iPosY;
+		m_timeRotationTravel = 0.0;
+	}
+
 	double dLength = sqrt((m_iTargetX - m_iStartPosX)*(m_iTargetX - m_iStartPosX) + (m_iTargetY - m_iStartPosY)*(m_iTargetY - m_iStartPosY));
 	m_xShootDir = (m_iTargetX - m_iStartPosX)/dLength;
 	m_yShootDir = (m_iTargetY - m_iStartPosY)/dLength;
 
 	m_bMoving = true;
 	m_timeTravel = 0.0;
+	m_bRotate = false;
 }
 
 int CLocalPlayer::GetPosX() const
@@ -102,4 +135,10 @@ int CLocalPlayer::GetPosX() const
 int CLocalPlayer::GetPosY() const
 {
 	return m_iPosY;
+}
+
+void CLocalPlayer::SetRotationSpeed(int iRotationSpeed)
+{
+	m_iRotationSpeed = iRotationSpeed;
+	m_bRotate = m_iRotationSpeed > 0 ? true : false;
 }

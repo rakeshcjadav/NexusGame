@@ -2,11 +2,12 @@
 #include "gamescreen.h"
 #include "levelone.h"
 #include "leveltwo.h"
+#include "levelthree.h"
 
 CGameScreen::CGameScreen()
 {
 	m_pCurrentLevel = NULL;
-	CLocalPlayer::Create(2000);
+	CLocalPlayer::Create(2000, 0);
 
 	m_bRestartLevel = false;
 	m_bNextLevel = false;
@@ -26,7 +27,6 @@ bool CGameScreen::Activate()
 
 bool CGameScreen::DeActivate()
 {
-	//CLocalPlayer::Destroy();
 	delete m_pCurrentLevel;
 	m_pCurrentLevel = NULL;
 	m_bRestartLevel = false;
@@ -103,7 +103,7 @@ bool CGameScreen::LevelSelect(ELEVEL_TYPE levelIndex)
 			m_pCurrentLevel = new CLevelTwo();
 			break;
 		case LEVEL_THREE:
-			m_pCurrentLevel = new CLevelOne();
+			m_pCurrentLevel = new CLevelThree();
 			break;
 		case LEVEL_FOUR:
 			m_pCurrentLevel = new CLevelTwo();

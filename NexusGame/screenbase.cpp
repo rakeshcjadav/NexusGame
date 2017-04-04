@@ -44,7 +44,7 @@ bool CScreenBase::OnRightMouseDown(int x, int y)
 
 bool CScreenBase::OnLevelComplete()
 {
-
+	return false;
 }
 
 void CScreenBase::RestartLevel()

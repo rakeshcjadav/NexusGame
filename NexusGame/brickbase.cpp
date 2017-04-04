@@ -38,7 +38,15 @@ bool CBrickBase::IsColliding(CLocalPlayer & gameObject)
 			angle = 360 - angle;
 		}
 
-		if(angle > m_iCurStartAngle && angle < m_iCurEndAngle)
+		int iStartAngle = m_iCurStartAngle;
+		int iEndAngle = m_iCurEndAngle;
+
+		if(iEndAngle < iStartAngle)
+		{
+			if(angle > iStartAngle && angle <= 360 || angle < iEndAngle && angle >= 0)
+				return true;
+		}
+		else if(angle > iStartAngle && angle < iEndAngle)
 		{
 			return true;
 		}
