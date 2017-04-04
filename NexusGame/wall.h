@@ -13,6 +13,7 @@ public:
 	virtual			~CWall();
 
 	virtual void	Update(double timeElapsed);
+	virtual bool 	IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer);
 
 private:
 	CBrickBase **	m_pListBricks;

@@ -8,6 +8,12 @@ public:
 	virtual			~CGameObject();
 
 	virtual void	Update(double timeElapsed);
+	virtual bool	IsCollidingObj(CGameObject & gameObject);
+	double			Distance(int xSource, int ySource, int xDest, int yDest) const;
+
+	int				GetPosX() const;
+	int 			GetPosY() const;
+	int 			GetRadius() const;
 
 protected:
 	int				m_iPosX;

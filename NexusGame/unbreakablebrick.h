@@ -10,6 +10,7 @@ public:
 	virtual			~CUnbreakableBrick();
 
 	virtual void	Update(double timeElapsed);
+	virtual bool 	IsBreakable() const;
 };
 
 #endif // !UNBREAKABLEBRICK_H

@@ -16,6 +16,8 @@ public:
 
 	bool				Run();
 	void				SetActiveScreen(ESCREEN_TYPE type);
+	void				Restart();
+	void				OnLevelComplete();
 
 	void 				OnLeftMouseDown(int x, int y);
 	void 				OnRightMouseDown(int x, int y);
@@ -33,6 +35,7 @@ private:
 private:
 	CFPSController *	m_pFPSController;
 	double				m_timeTotalElapsed;
+	bool				m_bRestart;
 
 	CScreenBase *		m_pMenuScreen;
 	CScreenBase *		m_pGameScreen;

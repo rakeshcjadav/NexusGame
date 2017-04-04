@@ -12,6 +12,11 @@ public:
 	virtual void	Update(double timeElapsed) = 0;
 	bool			IsActive() const;
 
+	virtual bool	OnLeftMouseDown(int x, int y);
+	virtual bool	OnRightMouseDown(int x, int y);
+
+	virtual bool	OnLevelComplete();
+
 protected:
 	bool			m_bActive;
 	double			m_timeTotalElapsed;

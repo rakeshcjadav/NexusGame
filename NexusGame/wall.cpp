@@ -2,6 +2,7 @@
 #include "wall.h"
 #include "breakablebrick.h"
 #include "unbreakablebrick.h"
+#include "game.h"
 
 CWall::CWall(int xPos, int yPos, int iRadius, int iRotationSpeed, int nBricks)
 {
@@ -47,6 +48,32 @@ void CWall::Update(double timeElapsed)
 
 	for(int i = 0; i < m_nBricks; i ++)
 	{
-		m_pListBricks[i]->Update(timeElapsed);
+		if(m_pListBricks[i] != NULL)
+			m_pListBricks[i]->Update(timeElapsed);
 	}
+}
+
+bool CWall::IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer)
+{
+	if(CGameObject::IsCollidingObj(localplayer) == false)
+		return false;
+
+	for(int i = 0; i < m_nBricks; i ++)
+	{
+		if(m_pListBricks[i] && m_pListBricks[i]->IsColliding(localplayer))
+		{
+			if(m_pListBricks[i]->IsBreakable())
+			{
+				delete m_pListBricks[i];
+				m_pListBricks[i] = NULL;
+				bRespawnPlayer = true;
+			}
+			else
+			{
+				CGame::Get().Restart();
+			}
+			break;
+		}
+	}
+	return true;
 }

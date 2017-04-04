@@ -6,6 +6,17 @@
 // Forward Declarations
 class CLevelBase;
 
+enum ELEVEL_TYPE
+{
+	LEVEL_ONE = 0,
+	LEVEL_TWO,
+	LEVEL_THREE,
+	LEVEL_FOUR,
+	LEVEL_FIVE,
+
+	LEVEL_TOTAL = LEVEL_FIVE
+};
+
 class CGameScreen : public CScreenBase
 {
 public:
@@ -16,8 +27,18 @@ public:
 	virtual bool	DeActivate();
 	virtual void	Update(double timeElapsed);
 
+	virtual bool	OnLeftMouseDown(int x, int y);
+	virtual bool	OnRightMouseDown(int x, int y);
+
+	bool			OnLevelComplete();
+
+private:
+	bool			LevelSelect(ELEVEL_TYPE levelIndex);
+
 private:
 	CLevelBase *	m_pCurrentLevel;
+
+	ELEVEL_TYPE		m_eCurrentLevel;
 };
 
 #endif // !GAMESCREEN_H

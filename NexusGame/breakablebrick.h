@@ -10,6 +10,9 @@ public:
 	virtual			~CBreakableBrick();
 
 	virtual void	Update(double timeElapsed);
+	virtual bool 	IsColliding(CLocalPlayer & localplayer);
+
+	virtual bool	IsBreakable() const;
 };
 
 #endif // !UNBREAKABLEBRICK_H

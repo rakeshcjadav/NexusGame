@@ -58,6 +58,12 @@ bool CGame::Run()
 {
 	while(!kbhit())
 	{
+		if(m_bRestart)
+		{
+			m_bRestart = false;
+			SetActiveScreen(SCREEN_GAME);
+			m_timeTotalElapsed = 0.0;
+		}
 		double timeElapsed = m_pFPSController->Update();
 		this->Update(timeElapsed);
 	}
@@ -89,6 +95,17 @@ void CGame::SetActiveScreen(ESCREEN_TYPE type)
 		m_pRefActiveScreen->Activate();
 }
 
+void CGame::Restart()
+{
+	m_bRestart = true;
+}
+
+void CGame::OnLevelComplete()
+{
+	if(m_pGameScreen->OnLevelComplete() == false)
+		SetActiveScreen(SCREEN_MENU);
+}
+
 bool CGame::InitPrivate()
 {
 	cout << "Starting Game" << endl;
@@ -97,6 +114,7 @@ bool CGame::InitPrivate()
 
 	registermousehandler(WM_LBUTTONDOWN, LeftMouseDownListener);
 	registermousehandler(WM_RBUTTONDOWN, RightMouseDownListener);
+	m_bRestart = false;
 	return true;
 }
 
@@ -118,11 +136,12 @@ bool CGame::Update(double timeElapsed)
 
 void CGame::OnLeftMouseDown(int x, int y)
 {
-	cout << "Left x : " << x  << " " << "y : " << y << endl;
+	if(m_pRefActiveScreen)
+		m_pRefActiveScreen->OnLeftMouseDown(x, y);
 }
 
 void CGame::OnRightMouseDown(int x, int y)
 {
-	cout << "Right x : " << x  << " " << "y : " << y << endl;
-	//Jay swaminarayan : CMouse class to as listener to all mouse events and forward them to game.
+	if(m_pRefActiveScreen)
+		m_pRefActiveScreen->OnRightMouseDown(x, y);
 }

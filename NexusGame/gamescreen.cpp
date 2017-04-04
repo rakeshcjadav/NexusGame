@@ -5,23 +5,24 @@
 CGameScreen::CGameScreen()
 {
 	m_pCurrentLevel = NULL;
+	CLocalPlayer::Create(1000);
 }
 
 CGameScreen::~CGameScreen()
 {
+	CLocalPlayer::Destroy();
 	DeActivate();
 }
 
 bool CGameScreen::Activate()
 {
-	CLocalPlayer::Create(200);
-	m_pCurrentLevel = new CLevelOne();
+	LevelSelect(LEVEL_ONE);
 	return CScreenBase::Activate();
 }
 
 bool CGameScreen::DeActivate()
 {
-	CLocalPlayer::Destroy();
+	//CLocalPlayer::Destroy();
 	delete m_pCurrentLevel;
 	return CScreenBase::DeActivate();
 }
@@ -48,4 +49,51 @@ void CGameScreen::Update(double timeElapsed)
 	outtextxy(10, 10, buffer);
 
 	m_pCurrentLevel->Update(timeElapsed);
+}
+
+bool CGameScreen::OnLeftMouseDown(int x, int y)
+{
+	m_pCurrentLevel->OnLeftMouseDown(x, y);
+	return true;
+}
+
+bool CGameScreen::OnRightMouseDown(int x, int y)
+{
+	m_pCurrentLevel->OnRightMouseDown(x, y);
+	return true;
+}
+
+bool CGameScreen::OnLevelComplete()
+{
+	if(m_eCurrentLevel >= LEVEL_TOTAL)
+		return false;
+
+	LevelSelect(ELEVEL_TYPE(m_eCurrentLevel+1));
+}
+
+bool CGameScreen::LevelSelect(ELEVEL_TYPE levelIndex)
+{
+	switch(levelIndex)
+	{
+		case LEVEL_ONE:
+			m_pCurrentLevel = new CLevelOne();
+			break;
+		case LEVEL_TWO:
+			m_pCurrentLevel = new CLevelOne();
+			break;
+		case LEVEL_THREE:
+			m_pCurrentLevel = new CLevelOne();
+			break;
+		case LEVEL_FOUR:
+			m_pCurrentLevel = new CLevelOne();
+			break;
+		case LEVEL_FIVE:
+			m_pCurrentLevel = new CLevelOne();
+			break;
+		default:
+			return false;
+	}
+	m_eCurrentLevel = levelIndex;
+	CLocalPlayer::Get().SetCurrentLevel(m_pCurrentLevel);
+	return true;
 }

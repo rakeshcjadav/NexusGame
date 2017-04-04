@@ -21,3 +21,26 @@ void CBrickBase::Update(double timeElapsed)
 {
 	CGameObject::Update(timeElapsed);
 }
+
+bool CBrickBase::IsColliding(CLocalPlayer & gameObject)
+{
+	if(CGameObject::IsCollidingObj(gameObject))
+	{
+		double dist = Distance(m_iPosX, m_iPosY, gameObject.GetPosX(), gameObject.GetPosY());
+		double xDir = (gameObject.GetPosX() - m_iPosX) / dist;
+		double yDir = (gameObject.GetPosY() - m_iPosY) / dist;
+
+		double angle = acos(xDir) * 180.0/PI;
+
+		if(yDir > 0)
+		{
+			angle = 360 - angle;
+		}
+
+		if(angle > m_iCurStartAngle && angle < m_iCurEndAngle)
+		{
+			return true;
+		}
+	}
+	return false;
+}

@@ -10,11 +10,16 @@ public:
 	virtual			~CBrickBase();
 
 	virtual void	Update(double timeElapsed);
+	virtual bool	IsColliding(CLocalPlayer & gameObject);
+
+	virtual bool	IsBreakable() const = 0;
 
 protected:
 	int				m_iStartAngle;
 	int				m_iEndAngle;
 	int				m_iRotationSpeed;
+	int				m_iCurStartAngle;
+	int				m_iCurEndAngle;
 };
 
 #endif // !BRICKBASE_H
