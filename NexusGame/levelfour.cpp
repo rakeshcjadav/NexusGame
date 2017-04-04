@@ -33,12 +33,10 @@ void CLevelFour::Update(double timeElapsed)
 
 	CLocalPlayer::Get().Update(timeElapsed);
 
-	/*
 	settextjustify(CENTER_TEXT, TOP_TEXT);
 	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 5);
 	setcolor(WHITE);
-	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 2");
-	*/
+	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 4");
 }
 
 bool CLevelFour::OnLeftMouseDown(int x, int y)

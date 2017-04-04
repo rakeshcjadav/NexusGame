@@ -7,8 +7,8 @@
 CLevelTwo::CLevelTwo()
 {
 	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 60, 100, 4);
-	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 100, 4);
-	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, 100, 4);
+	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 120, 6);
+	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, 80, 8);
 
 	CLocalPlayer::Get().SetRotationSpeed(0);
 	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.8, 10);
@@ -33,12 +33,10 @@ void CLevelTwo::Update(double timeElapsed)
 
 	CLocalPlayer::Get().Update(timeElapsed);
 
-	/*
 	settextjustify(CENTER_TEXT, TOP_TEXT);
 	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 5);
 	setcolor(WHITE);
 	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 2");
-	*/
 }
 
 bool CLevelTwo::OnLeftMouseDown(int x, int y)

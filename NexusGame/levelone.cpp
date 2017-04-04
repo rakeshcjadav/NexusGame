@@ -26,12 +26,10 @@ void CLevelOne::Update(double timeElapsed)
 
 	CLocalPlayer::Get().Update(timeElapsed);
 
-	/*
 	settextjustify(CENTER_TEXT, TOP_TEXT);
 	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 5);
 	setcolor(WHITE);
 	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 1");
-	*/
 }
 
 bool CLevelOne::OnLeftMouseDown(int x, int y)
