@@ -1,28 +1,32 @@
 #include "pchNexusGame.h"
-#include "levelone.h"
+#include "leveltwo.h"
 #include "wall.h"
 #include "nexus.h"
 #include "game.h"
 
-CLevelOne::CLevelOne()
+CLevelTwo::CLevelTwo()
 {
-	m_pWall = new CWall(m_iPosX, m_iPosY, 35, 100, 4);
-	//m_pWallTwo = new CWall(m_iPosX, m_iPosY, 60, 120, 6);
+	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 100, 4);
+	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 100, 120, 6);
+	m_pWallThree = new CWall(m_iPosX, m_iPosY, 120, 140, 8);
 
 	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.9, 10);
 }
 
-CLevelOne::~CLevelOne()
+CLevelTwo::~CLevelTwo()
 {
-	delete m_pWall;
+	delete m_pWallOne;
+	delete m_pWallTwo;
+	delete m_pWallThree;
 }
 
-void CLevelOne::Update(double timeElapsed)
+void CLevelTwo::Update(double timeElapsed)
 {
 	CLevelBase::Update(timeElapsed);
 
-	//m_pWallTwo->Update(timeElapsed);
-	m_pWall->Update(timeElapsed);
+	m_pWallThree->Update(timeElapsed);
+	m_pWallTwo->Update(timeElapsed);
+	m_pWallOne->Update(timeElapsed);
 
 	m_pNexus->Update(timeElapsed);
 
@@ -32,11 +36,11 @@ void CLevelOne::Update(double timeElapsed)
 	settextjustify(CENTER_TEXT, TOP_TEXT);
 	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 5);
 	setcolor(WHITE);
-	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 1");
+	outtextxy(m_iPosX + m_iPosX/2, 10, "Level 2");
 	*/
 }
 
-bool CLevelOne::OnLeftMouseDown(int x, int y)
+bool CLevelTwo::OnLeftMouseDown(int x, int y)
 {
 	int distance = sqrt((m_iPosX - x)*(m_iPosX - x) + (m_iPosY - y)*(m_iPosY - y));
 	if(distance < m_iRadius)
@@ -47,7 +51,7 @@ bool CLevelOne::OnLeftMouseDown(int x, int y)
 	return false;
 }
 
-bool CLevelOne::OnRightMouseDown(int x, int y)
+bool CLevelTwo::OnRightMouseDown(int x, int y)
 {
 	int distance = sqrt((m_iPosX - x)*(m_iPosX - x) + (m_iPosY - y)*(m_iPosY - y));
 	if(distance < m_iRadius)
@@ -59,12 +63,24 @@ bool CLevelOne::OnRightMouseDown(int x, int y)
 	return false;
 }
 
-bool CLevelOne::IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer)
+bool CLevelTwo::IsColliding(CLocalPlayer & localplayer, bool & bRespawnPlayer)
 {
 	if(CGameObject::IsCollidingObj(localplayer) == false)
 		return false;
 
-	if(m_pWall->IsColliding(localplayer, bRespawnPlayer) == false)
+	if(m_pWallThree->IsColliding(localplayer, bRespawnPlayer) == false)
+		return false;
+
+	if(bRespawnPlayer == true)
+		return true;
+
+	if(m_pWallTwo->IsColliding(localplayer, bRespawnPlayer) == false)
+		return false;
+
+	if(bRespawnPlayer == true)
+		return true;
+
+	if(m_pWallOne->IsColliding(localplayer, bRespawnPlayer) == false)
 		return false;
 
 	if(bRespawnPlayer == true)

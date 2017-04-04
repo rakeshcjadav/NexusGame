@@ -47,3 +47,8 @@ bool CScreenBase::OnLevelComplete()
 
 }
 
+void CScreenBase::RestartLevel()
+{
+
+}
+

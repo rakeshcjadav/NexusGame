@@ -16,6 +16,7 @@ public:
 	virtual bool	OnRightMouseDown(int x, int y);
 
 	virtual bool	OnLevelComplete();
+	virtual void 	RestartLevel();
 
 protected:
 	bool			m_bActive;

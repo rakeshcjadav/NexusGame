@@ -58,12 +58,6 @@ bool CGame::Run()
 {
 	while(!kbhit())
 	{
-		if(m_bRestart)
-		{
-			m_bRestart = false;
-			SetActiveScreen(SCREEN_GAME);
-			m_timeTotalElapsed = 0.0;
-		}
 		double timeElapsed = m_pFPSController->Update();
 		this->Update(timeElapsed);
 	}
@@ -97,7 +91,7 @@ void CGame::SetActiveScreen(ESCREEN_TYPE type)
 
 void CGame::Restart()
 {
-	m_bRestart = true;
+	m_pGameScreen->RestartLevel();
 }
 
 void CGame::OnLevelComplete()
@@ -121,6 +115,15 @@ bool CGame::InitPrivate()
 bool CGame::Update(double timeElapsed)
 {
 	m_timeTotalElapsed += timeElapsed;
+
+	/*
+	char buffer[100];
+	sprintf(buffer, "Time Elapsed : %0.2f (Secs)", m_timeTotalElapsed);
+	settextjustify(CENTER_TEXT, TOP_TEXT);
+	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
+	setcolor(WHITE);
+	outtextxy(1100, 690, buffer);
+	*/
 
 	static int nPage = 0;
 	setactivepage(nPage);

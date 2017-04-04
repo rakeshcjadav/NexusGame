@@ -24,4 +24,13 @@ void CLevelBase::Update(double timeElapsed)
 	setcolor(BLUE);
 	setfillstyle(SOLID_FILL, LIGHTBLUE);
 	fillellipse(m_iPosX, m_iPosY, m_iRadius, m_iRadius);
+
+	/*
+	char buffer[100];
+	sprintf(buffer, "Time Elapsed : %0.2f (Secs)", m_timeTotalElapsed);
+	settextjustify(LEFT_TEXT, TOP_TEXT);
+	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
+	setcolor(WHITE);
+	outtextxy(10, 10, buffer);
+	*/
 }

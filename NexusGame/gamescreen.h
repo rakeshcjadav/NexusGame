@@ -31,6 +31,7 @@ public:
 	virtual bool	OnRightMouseDown(int x, int y);
 
 	bool			OnLevelComplete();
+	void			RestartLevel();
 
 private:
 	bool			LevelSelect(ELEVEL_TYPE levelIndex);

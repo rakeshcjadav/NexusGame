@@ -51,6 +51,8 @@
 		<Unit filename="levelbase.h" />
 		<Unit filename="levelone.cpp" />
 		<Unit filename="levelone.h" />
+		<Unit filename="leveltwo.cpp" />
+		<Unit filename="leveltwo.h" />
 		<Unit filename="localplayer.cpp" />
 		<Unit filename="localplayer.h" />
 		<Unit filename="main.cpp" />
