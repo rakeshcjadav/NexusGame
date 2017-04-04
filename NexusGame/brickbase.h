@@ -6,7 +6,7 @@
 class CBrickBase : public CGameObject
 {
 public:
-					CBrickBase(int xPos, int yPos, int iStartAngle, int iEndAngle, int iRadius, int iRotationSpeed);
+					CBrickBase(int xPos, int yPos, int iStartAngle, int iEndAngle, int iRadius, int iInnerRadius, int iRotationSpeed);
 	virtual			~CBrickBase();
 
 	virtual void	Update(double timeElapsed);
@@ -15,6 +15,7 @@ public:
 	virtual bool	IsBreakable() const = 0;
 
 protected:
+	int				m_iInnerRadius;
 	int				m_iStartAngle;
 	int				m_iEndAngle;
 	int				m_iRotationSpeed;

@@ -28,6 +28,7 @@ CGame::~CGame()
 {
 	delete m_pMenuScreen;
 	delete m_pGameScreen;
+	m_pRefActiveScreen = NULL;
 }
 
 bool CGame::Start()
@@ -91,12 +92,12 @@ void CGame::SetActiveScreen(ESCREEN_TYPE type)
 
 void CGame::Restart()
 {
-	m_pGameScreen->RestartLevel();
+	m_pRefActiveScreen->RestartLevel();
 }
 
 void CGame::OnLevelComplete()
 {
-	if(m_pGameScreen->OnLevelComplete() == false)
+	if(m_pRefActiveScreen->OnLevelComplete() == false)
 		SetActiveScreen(SCREEN_MENU);
 }
 

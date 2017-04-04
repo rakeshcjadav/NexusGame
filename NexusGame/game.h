@@ -37,8 +37,8 @@ private:
 	double				m_timeTotalElapsed;
 	bool				m_bRestart;
 
-	CScreenBase *		m_pMenuScreen;
 	CScreenBase *		m_pGameScreen;
+	CScreenBase * 		m_pMenuScreen;
 
 	CScreenBase *		m_pRefActiveScreen;
 };

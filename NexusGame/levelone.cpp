@@ -6,7 +6,7 @@
 
 CLevelOne::CLevelOne()
 {
-	m_pWall = new CWall(m_iPosX, m_iPosY, 35, 100, 4);
+	m_pWall = new CWall(m_iPosX, m_iPosY, 60, 40, 100, 4);
 	//m_pWallTwo = new CWall(m_iPosX, m_iPosY, 60, 120, 6);
 
 	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.9, 10);

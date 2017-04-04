@@ -40,6 +40,9 @@ private:
 	CLevelBase *	m_pCurrentLevel;
 
 	ELEVEL_TYPE		m_eCurrentLevel;
+
+	bool			m_bRestartLevel;
+	bool			m_bNextLevel;
 };
 
 #endif // !GAMESCREEN_H

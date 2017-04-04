@@ -9,7 +9,7 @@ class CBrickBase;
 class CWall : public CGameObject
 {
 public:
-					CWall(int xPos, int yPos, int iRadius, int iRotationSpeed, int nBricks);
+					CWall(int xPos, int yPos, int iOutterRadius, int iInnerRadius, int iRotationSpeed, int nBricks);
 	virtual			~CWall();
 
 	virtual void	Update(double timeElapsed);
@@ -18,7 +18,7 @@ public:
 private:
 	CBrickBase **	m_pListBricks;
 	int				m_nBricks;
-
+	int 			m_iInnerRadius;
 };
 
 #endif // !WALL_H

@@ -6,9 +6,9 @@
 
 CLevelTwo::CLevelTwo()
 {
-	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 100, 4);
-	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 100, 120, 6);
-	m_pWallThree = new CWall(m_iPosX, m_iPosY, 120, 140, 8);
+	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 60, 100, 4);
+	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 100, 4);
+	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, 100, 4);
 
 	CLocalPlayer::Get().Spawn(m_iPosX, m_iPosY + m_iRadius * 0.9, 10);
 }

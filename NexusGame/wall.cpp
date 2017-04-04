@@ -4,11 +4,12 @@
 #include "unbreakablebrick.h"
 #include "game.h"
 
-CWall::CWall(int xPos, int yPos, int iRadius, int iRotationSpeed, int nBricks)
+CWall::CWall(int xPos, int yPos, int iOutterRadius, int iInnerRadius, int iRotationSpeed, int nBricks)
 {
 	m_iPosX = xPos;
 	m_iPosY = yPos;
-	m_iRadius = iRadius;
+	m_iRadius = iOutterRadius;
+	m_iInnerRadius = iInnerRadius;
 	m_nBricks = nBricks;
 
 	if(m_nBricks%2 == 1)
@@ -25,9 +26,9 @@ CWall::CWall(int xPos, int yPos, int iRadius, int iRotationSpeed, int nBricks)
 	for(int i = 0; i < m_nBricks; i++)
 	{
 		if(i%2 == 0)
-			m_pListBricks[i] = new CBreakableBrick(m_iPosX, m_iPosY, nEndAngle, (i+1)*iBrickAngle, m_iRadius, iRotationSpeed);
+			m_pListBricks[i] = new CBreakableBrick(m_iPosX, m_iPosY, nEndAngle, (i+1)*iBrickAngle, m_iRadius, m_iInnerRadius, iRotationSpeed);
 		else
-			m_pListBricks[i] = new CUnbreakableBrick(m_iPosX, m_iPosY, nEndAngle, (i+1)*iBrickAngle, m_iRadius, iRotationSpeed);
+			m_pListBricks[i] = new CUnbreakableBrick(m_iPosX, m_iPosY, nEndAngle, (i+1)*iBrickAngle, m_iRadius, m_iInnerRadius, iRotationSpeed);
 		nEndAngle = (i+1)*iBrickAngle;
 	}
 }
