@@ -101,6 +101,7 @@ void CLocalPlayer::Spawn(int xPos, int yPos, int iRadius)
 	m_bMoving = false;
 	m_timeTravel = 0.0;
 	m_bRotate = m_iRotationSpeed > 0 ? true : false;
+	m_timeRotationTravel = 0.0;
 }
 
 void CLocalPlayer::ShootAt(int xTarget, int yTarget)

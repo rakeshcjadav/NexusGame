@@ -3,6 +3,7 @@
 #include "levelone.h"
 #include "leveltwo.h"
 #include "levelthree.h"
+#include "levelfour.h"
 
 CGameScreen::CGameScreen()
 {
@@ -106,10 +107,10 @@ bool CGameScreen::LevelSelect(ELEVEL_TYPE levelIndex)
 			m_pCurrentLevel = new CLevelThree();
 			break;
 		case LEVEL_FOUR:
-			m_pCurrentLevel = new CLevelTwo();
+			m_pCurrentLevel = new CLevelFour();
 			break;
 		case LEVEL_FIVE:
-			m_pCurrentLevel = new CLevelOne();
+			m_pCurrentLevel = new CLevelFour();
 			break;
 		default:
 			return false;
