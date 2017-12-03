@@ -41,6 +41,8 @@ private:
 	CScreenBase * 		m_pMenuScreen;
 
 	CScreenBase *		m_pRefActiveScreen;
+
+	char 				m_strTimeInfo[100];
 };
 
 #endif // !GAME_H

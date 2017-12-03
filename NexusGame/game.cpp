@@ -117,14 +117,11 @@ bool CGame::Update(double timeElapsed)
 {
 	m_timeTotalElapsed += timeElapsed;
 
-	/*
-	char buffer[100];
-	sprintf(buffer, "Time Elapsed : %0.2f (Secs)", m_timeTotalElapsed);
-	settextjustify(CENTER_TEXT, TOP_TEXT);
-	settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
-	setcolor(WHITE);
-	outtextxy(1100, 690, buffer);
-	*/
+	//sprintf(m_strTimeInfo, "Time Elapsed : %0.2f (Secs)", m_timeTotalElapsed);
+	//settextjustify(CENTER_TEXT, TOP_TEXT);
+	//settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
+	//setcolor(WHITE);
+	//outtextxy(1100, 690, m_strTimeInfo);
 
 	static int nPage = 0;
 	setactivepage(nPage);
