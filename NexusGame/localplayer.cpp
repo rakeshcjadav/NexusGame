@@ -5,6 +5,7 @@
 // Feature A
 CLocalPlayer * CLocalPlayer::s_pLocalPlayer = NULL;
 
+// Feature B
 bool CLocalPlayer::Create(int iMovementSpeed, int iRotationSpeed)
 {
 	if(!s_pLocalPlayer)
