@@ -2,7 +2,7 @@
 #include "localplayer.h"
 #include "levelbase.h"
 
-
+// Feature A
 CLocalPlayer * CLocalPlayer::s_pLocalPlayer = NULL;
 
 bool CLocalPlayer::Create(int iMovementSpeed, int iRotationSpeed)
