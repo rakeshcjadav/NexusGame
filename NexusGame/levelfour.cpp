@@ -6,6 +6,7 @@
 
 CLevelFour::CLevelFour()
 {
+    // Inner wall : rinkeshjadav3@gmail.com
 	m_pWallOne = new CWall(m_iPosX, m_iPosY, 80, 60, -90, 2);
 	m_pWallTwo = new CWall(m_iPosX, m_iPosY, 120, 100, 100, 4);
 	m_pWallThree = new CWall(m_iPosX, m_iPosY, 160, 140, -75, 6);
